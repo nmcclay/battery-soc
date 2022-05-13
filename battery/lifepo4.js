@@ -20,14 +20,14 @@ const lifepo4Cell = [
     [1, 3.65]
 ]
 
-const lifepo4SeriesSamples = function(series = 1) {
+const seriesSamples = function(series = 1) {
     return lifepo4Cell.map((element) => [element[0], element[1] * series]);
 }
 
-exports.lifepo4Percentage = function(volt, series = 1, digits = 2) {
-    return battSOC.samplePercentage(volt, lifepo4SeriesSamples(series), digits);
+exports.percentage = function(volt, series = 1, digits = 2) {
+    return battSOC.samplePercentage(volt, seriesSamples(series), digits);
 };
 
-exports.lifepo4Voltage = function(perc, series = 1, digits = 2) {
-    return battSOC.sampleVoltage(perc, lifepo4SeriesSamples(series), digits);
+exports.voltage = function(perc, series = 1, digits = 2) {
+    return battSOC.sampleVoltage(perc, seriesSamples(series), digits);
 }

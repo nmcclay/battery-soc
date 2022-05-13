@@ -61,6 +61,7 @@ test('Battery Sample Voltage', () => {
         [1, 4.2]
     ]
 
-    expect(battSOC.samplePercentage(3.5, samples)).toBe(0.37);
-    expect(battSOC.samplePercentage(3.1, samples, 3)).toBe(0.233);
+    expect(battSOC.sampleVoltage(0.37, samples)).toBe(3.51);
+    expect(battSOC.sampleVoltage(0.233, samples)).toBe(3.1);
+    expect(battSOC.sampleVoltage(0.233, samples, 3)).toBe(3.099);
 });
